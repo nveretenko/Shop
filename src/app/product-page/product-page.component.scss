@@ -1,0 +1,16 @@
+
+
+.product {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr) 1fr;
+  gap: 20px;
+}
+
+.text-center {
+  display: inline-block;
+}
+
+.back {
+  height: 100%;
+  background-color: #05086a;
+}
