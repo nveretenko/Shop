@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 import { FbResponse } from './interfaces';
@@ -24,6 +25,7 @@ export class OrderService {
   }
 
   getAll() {
+
     return this.http.get(`${environment.fbDbUrl}/orders.json`)
       .pipe(map(res => {
         return Object.keys(res)
@@ -35,12 +37,8 @@ export class OrderService {
       }))
   }
 
-
-
-  remove(id) {
+  remove(id: any) {
     return this.http.delete(`${environment.fbDbUrl}/orders/${id}.json`)
   }
-
-
 
 }

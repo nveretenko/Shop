@@ -16,9 +16,12 @@ export class OrdersPageComponent implements OnInit {
   constructor(private orderServ: OrderService) { }
 
   ngOnInit(): void {
-    this.pSub = this.orderServ.getAll().subscribe(orders => {
-      this.orders = orders
-    })
+    this.pSub = this.orderServ.getAll().subscribe(
+      orders => {
+        this.orders = orders
+      },
+      error => error
+    )
   }
 
   remove(id: any) {
@@ -36,6 +39,5 @@ export class OrdersPageComponent implements OnInit {
       this.rSub.unsubscribe()
     }
   }
-
 
 }

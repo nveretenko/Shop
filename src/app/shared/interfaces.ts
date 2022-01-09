@@ -10,4 +10,5 @@ export interface Product {
   info?: string
   price?: string
   date?: Date
+  counter?:number
 }

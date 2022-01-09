@@ -10,8 +10,13 @@
     <li routerLinkActive="active">
       <a (click)="setType('Laptop')">Laptop</a>
     </li>
-    <li routerLinkActive="active">
-      <a (click)="setType('Cart')" [routerLink]="['/cart']">Cart</a>
+    <li class="relative flex-center" routerLinkActive="active">
+      <a (click)="setType('Cart')" [routerLink]="['/cart']">
+        <svg-icon svgClass="svg" src="../../assets/icons-svg/shopping-cart-svgrepo-com.svg">
+        </svg-icon>
+        <span *ngIf="product.counter" class="counter counter--green">{{product.counter}}</span>
+      </a>
+      
     </li>
   </ul>
 </nav>

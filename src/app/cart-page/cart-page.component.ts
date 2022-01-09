@@ -18,7 +18,7 @@ export class CartPageComponent implements OnInit {
   submitted = false
   added = ''
 
-  constructor(private orderServ: OrderService, private productServ: ProductService) { }
+  constructor(private orderServ: OrderService, public productServ: ProductService) { }
 
   ngOnInit(): void {
 
@@ -55,7 +55,7 @@ export class CartPageComponent implements OnInit {
 
     this.orderServ.create(order).subscribe(res => {
       this.form.reset()
-      this.added = 'Delivery is framed'
+      this.added = 'Your Order has been successfully completed!'
       this.submitted = false
     }
     )
@@ -64,6 +64,7 @@ export class CartPageComponent implements OnInit {
   delete(product: Product) {
     this.totalPrice -= +product.price
     this.cartProducts.splice(this.cartProducts.indexOf(product), 1)
+    this.productServ.counter--
   }
 
 }

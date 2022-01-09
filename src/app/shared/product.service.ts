@@ -12,6 +12,7 @@ export class ProductService {
 
   type = 'Phone'
   cartProducts: Product[] = []
+  counter = 0
 
   constructor(private http: HttpClient) { }
 
@@ -67,6 +68,9 @@ export class ProductService {
 
   addProduct(product: Product): void {
     this.cartProducts.push(product)
+    this.counter++
   }
+
+  
 
 }

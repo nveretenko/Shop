@@ -3,10 +3,10 @@
 
 :root {
   --primary-color: #000000;
-  --dark-color: #000000;
+  --dark-color: #05086a;
   --light-color: #f4f4f4;
   --danger-color: #b10012;
-  --success-color: #064b16;
+  --success-color: #049808;
 }
 
 * {
@@ -59,6 +59,7 @@ ul {
 
 .text-success {
   color: var(--success-color);
+  font-size: 1.1rem;
 }
 
 .text-danger {
@@ -204,6 +205,14 @@ ul {
   margin-top: 5rem;
 }
 
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.relative {
+  position: relative;
+}
+
 .form-control {
   display: block;
   color: #888;
@@ -236,7 +245,7 @@ table {
 
 table th,
 table td {
-  padding: 1rem;
+  padding: 10px;
   text-align: left;
 }
 
@@ -248,6 +257,7 @@ table th {
 }
 
 .navbar {
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;

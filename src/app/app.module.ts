@@ -13,6 +13,9 @@ import { ProductComponent } from './product/product.component';
 import { AuthInterceptor } from './shared/auth.interceptor';
 import { MainLayoutComponent } from './shared/main-layout/main-layout.component';
 import { SortingPipe } from './shared/sorting.pipe';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 @NgModule({
   declarations: [
@@ -25,12 +28,19 @@ import { SortingPipe } from './shared/sorting.pipe';
     SortingPipe
   ],
   imports: [
+    AngularSvgIconModule.forRoot(),
     QuillModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [
     {

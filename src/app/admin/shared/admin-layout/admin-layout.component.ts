@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
 })
 export class AdminLayoutComponent implements OnInit {
 
-  constructor(public auth: AuthService, private router: Router) { }
+  authHtml = this.auth;
+
+  constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
 

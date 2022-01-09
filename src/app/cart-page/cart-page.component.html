@@ -1,10 +1,10 @@
-<div class="container" *ngIf="cartProducts.length > 0; else empty">
+<div class="container mt-5 mb-2" *ngIf="cartProducts.length > 0; else empty">
   <h2 class="text-center">Your order:</h2>
   <table>
     <tbody>
-      <tr *ngFor="let cartProduct of cartProducts; let i = index">
-        <td>{{i+1}}.</td>
-        <td>{{cartProduct.type}}</td>
+      <tr *ngFor="let cartProduct of cartProducts; let i = index" class="table">
+        
+        <td>{{i+1}}. {{cartProduct.type}}</td>
         <td>{{cartProduct.title}}</td>
         <td>
           <button class="btn btn-danger" (click)="delete(cartProduct)">Delete</button>
@@ -14,17 +14,16 @@
     </tbody>
   </table>
   <hr />
-  <b class="right">
-    Total:{{totalPrice}} $
+  <b class="right bg-total">
+    Total: {{totalPrice}} $
   </b>
 
   <h2 class="text-center">Delivery:</h2>
-  <div class="text-center text-danger" *ngIf="added">
+  <div class="text-center text-success" *ngIf="added">
     <h3 class="added">{{added}}</h3>
   </div>
 
-  <form [formGroup]="form" (ngSubmit)="submit()">
-
+  <form *ngIf="!added" [formGroup]="form" (ngSubmit)="submit()">
 
     <div class="form-control">
       <label for="name">Name</label>
@@ -65,5 +64,5 @@
 </div>
 
 <ng-template #empty>
-  <h2 class="text-center">Cart is empty, select Product</h2>
+  <h2 class="text-center mt-5">Cart is empty, select Product</h2>
 </ng-template>

@@ -1,3 +1,3 @@
-<div *ngIf="products$ | async as products" class="dashboard">
-  <app-product *ngFor="let product of products |sorting: productServ.type" [product]="product"></app-product>
+<div *ngIf="products$ | async as products" class="dashboard mt-5">
+  <app-product *ngFor="let product of products |sorting: product.type" [product]="product"></app-product>
 </div>

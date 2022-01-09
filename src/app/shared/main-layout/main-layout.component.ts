@@ -10,6 +10,7 @@ import { ProductService } from 'src/app/shared/product.service';
 export class MainLayoutComponent implements OnInit {
 
   type = 'Tablet'
+  product = this.productServ
 
   constructor(private router: Router, private productServ: ProductService) { }
 

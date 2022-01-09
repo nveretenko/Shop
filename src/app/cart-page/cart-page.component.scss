@@ -6,8 +6,29 @@
 
 .container {
   max-width: 900px;
+  padding: 0;
 }
 
 .added {
-  background-color: darkgray;
+  background-color: #e9f4de;
+  padding: 10px;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+}
+
+tr:nth-child(even) {
+  background-color: #ccc;
+}
+
+tr:nth-child(odd) {
+  background-color: #eee;
+}
+
+.bg-total {
+  background-color: bisque;
+  font-size: 1.4rem;
+  padding: 10px;
 }
