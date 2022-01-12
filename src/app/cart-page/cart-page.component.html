@@ -13,6 +13,7 @@
       </tr>
     </tbody>
   </table>
+
   <hr />
   <b class="right bg-total">
     Total: {{totalPrice}} $
@@ -35,7 +36,7 @@
 
     <div class="form-control">
       <label for="phone">Phone</label>
-      <input type="phone" id="phone" formControlName="phone">
+      <input class="input" id="phone" type="tel" formControlName="phone" prefix="+" [showMaskTyped]="true" [mask]="mask" />
       <div class="validation" *ngIf="form.get('phone').touched && form.get('phone').invalid">
         <small *ngIf="form.get('phone').errors.required">Enter Your phone number</small>
       </div>

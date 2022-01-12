@@ -5,6 +5,12 @@ import { ProductService } from 'src/app/shared/product.service';
 import { Product } from '../shared/interfaces';
 import { OrderService } from './../shared/order.service';
 
+type Table = {
+  i: number
+  type: string
+  price: string
+}
+
 @Component({
   selector: 'app-cart-page',
   templateUrl: './cart-page.component.html',
@@ -17,8 +23,9 @@ export class CartPageComponent implements OnInit {
   form: FormGroup
   submitted = false
   added = ''
+  mask = '00 (000) 000-00-00'
 
-  constructor(private orderServ: OrderService, public productServ: ProductService) { }
+  constructor(private orderServ: OrderService, public productServ: ProductService) {}
 
   ngOnInit(): void {
 
@@ -29,7 +36,7 @@ export class CartPageComponent implements OnInit {
 
     this.form = new FormGroup({
       name: new FormControl(null, Validators.required),
-      phone: new FormControl(null, Validators.required),
+      phone: new FormControl('38(', Validators.required),
       address: new FormControl(null, Validators.required),
       payment: new FormControl('Cash')
     })

@@ -5,7 +5,7 @@
   --primary-color: #000000;
   --dark-color: #05086a;
   --light-color: #f4f4f4;
-  --danger-color: #b10012;
+  --danger-color: #f26775;
   --success-color: #049808;
 }
 
@@ -68,6 +68,10 @@ ul {
 
 .text-center {
   text-align: center;
+}
+
+.w-100 {
+  width: 100%;
 }
 
 .list {

@@ -32,3 +32,10 @@ tr:nth-child(odd) {
   font-size: 1.4rem;
   padding: 10px;
 }
+
+
+@media screen and (min-width:768px) {
+  .table {
+    display: table-row;
+  }
+}

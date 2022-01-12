@@ -16,6 +16,7 @@ import { SortingPipe } from './shared/sorting.pipe';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
     SortingPipe
   ],
   imports: [
+    NgxMaskModule.forRoot(),
     AngularSvgIconModule.forRoot(),
     QuillModule.forRoot(),
     BrowserModule,
