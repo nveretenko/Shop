@@ -3,7 +3,6 @@
   <table>
     <tbody>
       <tr *ngFor="let cartProduct of cartProducts; let i = index" class="table">
-        
         <td>{{i+1}}. {{cartProduct.type}}</td>
         <td>{{cartProduct.title}}</td>
         <td>
@@ -18,6 +17,7 @@
   <b class="right bg-total">
     Total: {{totalPrice}} $
   </b>
+
 
   <h2 class="text-center">Delivery:</h2>
   <div class="text-center text-success" *ngIf="added">

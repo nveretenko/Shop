@@ -14,7 +14,13 @@ export class ProductService {
   cartProducts: Product[] = []
   counter = 0
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    
+    const data = localStorage.getItem("data");
+    if (data) this.cartProducts = JSON.parse(data);
+    localStorage.setItem("data", JSON.stringify(this.cartProducts));
+
+  }
 
   create(product: Product) {
     return this.http.post(`${environment.fbDbUrl}/products.json`, product)
@@ -69,8 +75,9 @@ export class ProductService {
   addProduct(product: Product): void {
     this.cartProducts.push(product)
     this.counter++
-  }
 
-  
+    localStorage.setItem("data", JSON.stringify(this.cartProducts));
+   
+  }
 
 }

@@ -2,14 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProductService } from 'src/app/shared/product.service';
 
-import { Product } from '../shared/interfaces';
+import { Product } from './../shared/interfaces';
 import { OrderService } from './../shared/order.service';
-
-type Table = {
-  i: number
-  type: string
-  price: string
-}
 
 @Component({
   selector: 'app-cart-page',
@@ -18,16 +12,28 @@ type Table = {
 })
 export class CartPageComponent implements OnInit {
 
+ 
+
   cartProducts = []
   totalPrice = 0
   form: FormGroup
   submitted = false
   added = ''
   mask = '00 (000) 000-00-00'
+  product: Product
+  
+  
 
-  constructor(private orderServ: OrderService, public productServ: ProductService) {}
+  constructor(private orderServ: OrderService, private productServ: ProductService) { 
+    
+  }
 
   ngOnInit(): void {
+
+    
+
+    const data = localStorage.getItem("data");
+    if (data) this.cartProducts = JSON.parse(data);
 
     this.cartProducts = this.productServ.cartProducts
     for (let i = 0; i < this.cartProducts.length; i++) {
@@ -41,7 +47,12 @@ export class CartPageComponent implements OnInit {
       payment: new FormControl('Cash')
     })
 
+    localStorage.setItem("data", JSON.stringify(this.cartProducts));
+    localStorage.setItem('counter', JSON.stringify(this.productServ.counter))
+    
   }
+
+  
 
   submit() {
     if (this.form.invalid) {
@@ -68,10 +79,13 @@ export class CartPageComponent implements OnInit {
     )
   }
 
-  delete(product: Product) {
+  delete(product) {
     this.totalPrice -= +product.price
     this.cartProducts.splice(this.cartProducts.indexOf(product), 1)
     this.productServ.counter--
+
+    localStorage.setItem("data", JSON.stringify(this.cartProducts));
+    localStorage.setItem('counter', JSON.stringify(this.productServ.counter))
   }
 
 }
