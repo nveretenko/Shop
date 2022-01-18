@@ -12,8 +12,6 @@ import { OrderService } from './../shared/order.service';
 })
 export class CartPageComponent implements OnInit {
 
- 
-
   cartProducts = []
   totalPrice = 0
   form: FormGroup
@@ -21,19 +19,11 @@ export class CartPageComponent implements OnInit {
   added = ''
   mask = '00 (000) 000-00-00'
   product: Product
+  total = this.productServ.counter
   
-  
-
-  constructor(private orderServ: OrderService, private productServ: ProductService) { 
-    
-  }
+  constructor(private orderServ: OrderService, private productServ: ProductService) { }
 
   ngOnInit(): void {
-
-    
-
-    const data = localStorage.getItem("data");
-    if (data) this.cartProducts = JSON.parse(data);
 
     this.cartProducts = this.productServ.cartProducts
     for (let i = 0; i < this.cartProducts.length; i++) {
@@ -51,8 +41,6 @@ export class CartPageComponent implements OnInit {
     localStorage.setItem('counter', JSON.stringify(this.productServ.counter))
     
   }
-
-  
 
   submit() {
     if (this.form.invalid) {
@@ -77,15 +65,22 @@ export class CartPageComponent implements OnInit {
       this.submitted = false
     }
     )
+
+    this.total = 0
+    this.productServ.counter = 0
+
   }
 
-  delete(product) {
+  delete(product: { price: string | number; }) {
     this.totalPrice -= +product.price
     this.cartProducts.splice(this.cartProducts.indexOf(product), 1)
     this.productServ.counter--
 
     localStorage.setItem("data", JSON.stringify(this.cartProducts));
     localStorage.setItem('counter', JSON.stringify(this.productServ.counter))
+
+    this.total = +localStorage.getItem('counter')
+    
   }
 
 }

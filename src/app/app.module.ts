@@ -29,6 +29,7 @@ import { NgxMaskModule } from 'ngx-mask';
     SortingPipe
   ],
   imports: [
+    
     NgxMaskModule.forRoot(),
     AngularSvgIconModule.forRoot(),
     QuillModule.forRoot(),
