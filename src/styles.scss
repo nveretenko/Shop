@@ -281,13 +281,6 @@ table th {
     display: flex;
   }
 
-  li.active a {
-    color: #fff;
-    font-weight: bold;
-    cursor: default;
-    opacity: 1;
-  }
-
   a {
     color: #fff;
     padding: 0.45rem;
@@ -299,4 +292,11 @@ table th {
       opacity: 1;
     }
   }
+
+  li.active a {
+    font-weight: bold;
+    cursor: default;
+    opacity: 1;
+  }
 }
+

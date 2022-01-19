@@ -1,13 +1,16 @@
 <nav class="navbar bg-dark">
-  <h2>Online Shop</h2>
+  <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <h2>Online Shop</h2>
+  </a>
+
   <ul>
-    <li routerLinkActive="active">
+    <li [ngClass]="{active:this.type === 'Phone'}">
       <a (click)="setType('Phone')">Phone</a>
     </li>
-    <li routerLinkActive="active">
+    <li [ngClass]="{active:this.type === 'Tablet'}">
       <a (click)="setType('Tablet')">Tablet</a>
     </li>
-    <li routerLinkActive="active">
+    <li [ngClass]="{active:this.type === 'Laptop'}">
       <a (click)="setType('Laptop')">Laptop</a>
     </li>
     <li class="relative flex-center" routerLinkActive="active">
@@ -15,12 +18,15 @@
         <svg-icon svgClass="svg" src="../../assets/icons-svg/shopping-cart-svgrepo-com.svg">
         </svg-icon>
         <span *ngIf="product.counter" class="counter counter--green">{{product.counter}}</span>
-      </a> 
+      </a>
     </li>
-   
   </ul>
 </nav>
 
 <div class="container">
   <router-outlet></router-outlet>
+</div>
+
+<div class="repo">
+<small><a href="https://github.com/nveretenko/Shop" target="_blank">Repository GitHub </a></small>
 </div>

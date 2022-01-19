@@ -10,7 +10,7 @@ import { FbResponse, Product } from './interfaces';
 })
 export class ProductService {
 
-  type = 'Phone'
+  type = 'Tablet'
   cartProducts: Product[] = []
   counter = 0
   total:string | null
