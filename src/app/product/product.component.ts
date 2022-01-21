@@ -16,8 +16,8 @@ export class ProductComponent implements OnInit {
   constructor(private productServ: ProductService) { }
 
   ngOnInit(): void {
-    //localStorage.setItem("data", JSON.stringify(this.productServ.cartProducts));
-    //localStorage.setItem('counter', JSON.stringify(this.productServ.counter))
+    localStorage.setItem("data", JSON.stringify(this.productServ.cartProducts));
+    localStorage.setItem('counter', JSON.stringify(this.productServ.counter))
   }
 
   addProduct(product: Product): void {
