@@ -11,11 +11,13 @@ import { ProductService } from './../shared/product.service';
 export class ProductComponent implements OnInit {
 
   @Input() product: Product
+  
 
   constructor(private productServ: ProductService) { }
 
   ngOnInit(): void {
-    
+    //localStorage.setItem("data", JSON.stringify(this.productServ.cartProducts));
+    //localStorage.setItem('counter', JSON.stringify(this.productServ.counter))
   }
 
   addProduct(product: Product): void {
